@@ -1,0 +1,32 @@
+[package]
+name = "string_id"
+version = "0.1.0"
+edition = "2024"
+
+[features]
+default = []
+
+reflect = ["dep:bevy_reflect"]
+serde = ["dep:serde_core"]
+
+[dependencies]
+foldhash = "0.2"
+parking_lot = "0.13"
+
+bevy_reflect = { version = "0.20", optional = true, default-features = false }
+serde_core = { version = "1", optional = true }
+
+[dev-dependencies]
+criterion = "0.8"
+rand = "0.10"
+rand_chacha = "0.10"
+
+lasso = { version = "0.7.3", features = ["multi-threaded"] }
+
+[[bench]]
+name = "string_id"
+harness = false
+
+[[bench]]
+name = "lasso"
+harness = false
